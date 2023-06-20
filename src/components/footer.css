@@ -1,0 +1,65 @@
+.footerMain {
+    height: 350px;
+    background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+}
+
+.footerMain>div {
+    display: flex;
+    flex-direction: row;
+}
+
+.footerMain .copyRigthTag {
+    background-color: #000000;
+    color: #FFFFFF;
+    justify-content: center;
+}
+
+.footerMain .copyRigthTag .copyRigthTagCont {
+    align-items: center;
+    color: #FFFFFF;
+    padding: 10px;
+}
+
+.footerMain .firstSec {
+    width: 20%;
+}
+
+.footerMain .secondSec {
+    width: 40%;
+}
+
+.footerMain .secondSec>div {
+    flex-direction: row;
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.footerMain .secondSec .headerCont {}
+
+.footerMain .secondSec .subCont {
+    margin: 30px;
+}
+
+.footerMain .thirdSec {
+    width: 40%;
+}
+
+.footerMain .thirdSec>div {
+    flex-direction: row;
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.footerMain .thirdSec .phSec>div {
+    flex-direction: column;
+    display: flex;
+}
+
+.footerMain .thirdSec img {
+    margin-right: 10px;
+}

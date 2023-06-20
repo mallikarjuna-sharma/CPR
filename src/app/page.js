@@ -9,6 +9,7 @@ import ServiceWeDo from "@/components/ServiceWeDo";
 import ProjectsWork from "@/components/ProjectsWork";
 import InfoBox from "@/components/InfoBox";
 import OurClient from "@/components/OurClients";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <ProjectsWork styles={styles}> </ProjectsWork>
       <InfoBox styles={styles}></InfoBox>
       <OurClient></OurClient>
+      <Footer></Footer>
     </main>
   );
 }
