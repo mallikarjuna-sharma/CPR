@@ -1,5 +1,5 @@
 .home_screen_bg {
-  background-image: url("../assests/background_image.png");
+  background-image: url("/background_image.png");
   height: 90vh;
   background-size: contain;
   background-repeat: no-repeat;
