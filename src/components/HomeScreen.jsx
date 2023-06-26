@@ -1,61 +1,58 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Carousal from "./Carousal";
+import StyledButton from "./StyledButton";
 
 export function HomeScreen({ styles }) {
   return (
     <Grid container width={"100%"}>
-      <Grid item lg={12}>
+      <Grid item lg={12} sm={12}>
         <Grid
           className={styles.home_screen_bg}
           container
-          alignContent={"center"}
-          alignItems={"space-between"}
+          alignContent={"flex-end"}
+          justifyContent={"center"}
           width={"100%"}
           flexDirection={"row"}
           flex={true}
         >
-          <Grid item lg={12}>
-            <Grid container>
-              <Grid item lg={6}></Grid>
-              <Grid item lg={6}>
-                <Grid
-                  container
-                  flexDirection={"column"}
-                  alignItems={"center"}
-                  justifyContent={"center"}
+          <Grid item className={styles.home_screen_text}>
+            <Grid
+              container
+              flexDirection={"column"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              <Grid item>
+                <Typography
+                  style={{ fontWeight: 600 }}
+                  variant="h4"
+                  color={"black"}
                 >
-                  <Grid item>
-                    <Typography variant="h4" color={"black"}>
-                      CONSTRUCTION PROFESSIONAL
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="h4" color={"black"}>
-                      RESOURCES PTE LTD
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className={styles.button_style}
-                    >
-                      View Our Work
-                    </Button>
-                  </Grid>
-                </Grid>
+                  CONSTRUCTION PROFESSIONAL
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography
+                  style={{ fontWeight: 600 }}
+                  variant="h4"
+                  color={"black"}
+                >
+                  RESOURCES PTE LTD
+                </Typography>
+              </Grid>
+              <Grid item>
+                <StyledButton name={"View Our Work"}></StyledButton>
               </Grid>
             </Grid>
           </Grid>
 
-          <Grid lg={12} item>
-            <Grid container   flexDirection={"column"}>
-              <Grid item lg={8}></Grid>
-              <Grid item lg={4}>
-                {" "}
-                <Carousal></Carousal>{" "}
-              </Grid>
-            </Grid>
+          <Grid
+            item
+            lg={4}
+            sm={4}
+            style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}
+          >
+            <Carousal></Carousal>
           </Grid>
         </Grid>
       </Grid>

@@ -1,22 +1,30 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@mui/material";
+import { Paper } from "@mui/material";
 
 function Carousal(props) {
   var items = [
     {
-      name: "Construction Professional Resources",
+      name: "Solar Services",
+      description: "Solar PV System Integrator and O&M Services",
+    },
+    {
+      name: "Scaffolding Services",
+      description: "Approved Scaffold Contractor by Ministry of Manpower",
+    },
+    {
+      name: "Professional Resources",
       description: "Corporate Member of Access Scaffold Industry Association",
     },
     {
-      name: "Construction Professional Resources",
-      description: "Corporate Member of Access Scaffold Industry Association",
+      name: "Certifications",
+      description: "ISO 9001:2015 by EQAIMS Certification Pte Ltd",
     },
   ];
 
   return (
     <Carousel
-      autoPlay={false}
+      autoPlay={true}
       indicatorContainerProps={{
         style: {
           display: "none",
@@ -34,12 +42,18 @@ function Item(props) {
   return (
     <Paper
       style={{
-        width: "25vw",
+        width: "35vw",
+        height: "25vh",
         backgroundColor: "#ffffffbf",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "10px",
       }}
     >
-      <h2>{props.item.name}</h2>
-      <p>{props.item.description}</p>
+      <h1>{props.item.name}</h1>
+      <h3>{props.item.description}</h3>
     </Paper>
   );
 }
