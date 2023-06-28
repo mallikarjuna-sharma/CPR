@@ -17,7 +17,7 @@ export default function Home() {
       <NavBar styles={styles}></NavBar>
       <HomeScreen styles={styles}></HomeScreen>
       <About></About>
-      <ServiceWeDo styles={styles}> </ServiceWeDo>
+      <ServiceWeDo styles={styles} col={3} count={4}> </ServiceWeDo>
       <ProjectsWork styles={styles}> </ProjectsWork>
       <InfoBox styles={styles}></InfoBox>
       <OurClient></OurClient>

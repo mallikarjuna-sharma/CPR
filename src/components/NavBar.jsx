@@ -18,6 +18,7 @@ import Button from "@mui/material/Button";
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import logo from "../assests/logo.png";
 import Image from "next/image";
+import Link from 'next/link'
 
 const drawerWidth = 240;
 const navItems = ["HOME", "SERVICES", "PROJECTS", "CONTACT US"];
@@ -71,7 +72,9 @@ function NavBar(props) {
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
                 <Button key={item} sx={{ color: "#a59e9d" }}>
-                  {item}
+                  <Link href={`/${item == 'HOME'?'':item.toLowerCase()}`} style={{"textDecoration":"none","color":"unset"}}>
+                    {item}
+                  </Link>
                 </Button>
               ))}
             </Box>
