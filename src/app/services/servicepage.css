@@ -1,0 +1,26 @@
+.service_card_header {
+  color: #000;
+  text-align: center;
+  font-size: 28px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.service_card_sub_header {
+  color: #000;
+  text-align: center;
+  font-size: 20px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10%;
+}
+
+.divider {
+    border-bottom: 2px solid black;
+    height: 30px;
+    width: 90px;
+}

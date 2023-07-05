@@ -13,20 +13,19 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import useScrollTrigger from '@mui/material/useScrollTrigger';
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 import logo from "../assests/logo.png";
 import Image from "next/image";
-import Link from 'next/link'
+import Link from "next/link";
+
 
 const drawerWidth = 240;
 const navItems = ["HOME", "SERVICES", "PROJECTS", "CONTACT US"];
 
 function NavBar(props) {
-  const { window } = props;
+  const { window, styles, setIsOpen } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -50,36 +49,51 @@ function NavBar(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const handleNavBarItemClick = (event, item) => {
+    if (item === "CONTACT US") {
+      event.preventDefault();
+      setIsOpen(true);
+    }
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       {/* <ElevationScroll {...props}> */}
-        <AppBar position="sticky" color="transparent" component="nav">
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-              <Image src={logo}></Image>
-            </Box>
+      <AppBar position="sticky" color="transparent" component="nav">
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
+            <Image src={logo}></Image>
+          </Box>
 
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Button key={item} sx={{ color: "#a59e9d" }}>
-                  <Link href={`/${item == 'HOME'?'':item.toLowerCase()}`} style={{"textDecoration":"none","color":"unset"}}>
-                    {item}
-                  </Link>
-                </Button>
-              ))}
-            </Box>
-          </Toolbar>
-        </AppBar>
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            {navItems.map((item) => (
+              <Button
+                className={"nav_bar_text"}
+                key={item}
+                sx={{ color: "#a59e9d" }}
+              >
+                <Link
+                  onClick={(event) => handleNavBarItemClick(event, item)}
+                  href={`/${item == "HOME" ? "" : item.toLowerCase()}`}
+                  style={{ textDecoration: "none", color: "unset" }}
+                >
+                  {item}
+                </Link>
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </AppBar>
       {/* </ElevationScroll> */}
       <Box component="nav">
         <Drawer
