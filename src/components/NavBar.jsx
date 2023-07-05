@@ -19,7 +19,6 @@ import logo from "../assests/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
-
 const drawerWidth = 240;
 const navItems = ["HOME", "SERVICES", "PROJECTS", "CONTACT US"];
 
@@ -60,7 +59,12 @@ function NavBar(props) {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       {/* <ElevationScroll {...props}> */}
-      <AppBar position="sticky" color="transparent" component="nav">
+      <AppBar
+        position="sticky"
+        color="transparent"
+        component="nav"
+        style={{ boxShadow: "none" }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
