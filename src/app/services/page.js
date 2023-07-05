@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import styles from "../page.module.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/footer";
@@ -9,11 +10,17 @@ import service2 from "../../assests/service2.jpg";
 import service3 from "../../assests/service3.jpg";
 import service4 from "../../assests/service4.jpg";
 
-import Image from "next/image";
+import { Grid } from "@mui/material";
 
-import { Grid} from "@mui/material";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import "./servicepage.css";
+
+import ServiceCard from "./servicecard";
+
+import Grow from "@mui/material/Grow";
+
+import Image from "next/image";
 
 const ServicePage = [
   {
@@ -60,56 +67,175 @@ const ServicePage = [
   },
 ];
 
+const isLoaded = false;
+
 export default function page() {
+  const [selectedIndex, setselectedIndex] = useState(0);
+  const [startAnimate, setstartAnimate] = useState(false);
+
+  useEffect(() => {
+    if (!isLoaded) {
+      setstartAnimate(true);
+    }
+
+    return () => {
+      setstartAnimate(false);
+    };
+  }, []);
+
+  const handleServiceElementClick = (index) => {
+    setselectedIndex(index + 1);
+  };
+
   return (
     <main className="servicePage">
       <NavBar styles={styles}></NavBar>
       <Title></Title>
 
-      <Grid
-        container
-        lg={12}
-        flexWrap="wrap"
-        width="100%"
-        height="100%"
-        flexDirection="row"
-        justifyContent="space-around"
-      >
-        {ServicePage.map((element) => {
-          return (
+      {!selectedIndex && startAnimate && (
+        <Grid
+          container
+          lg={12}
+          flexWrap="wrap"
+          width="100%"
+          height="100%"
+          flexDirection="row"
+          justifyContent="space-around"
+        >
+          {ServicePage.map((element, index) => {
+            return (
+              <Grow
+                in={startAnimate}
+                style={{ transformOrigin: "0 0 0" }}
+                {...(startAnimate ? { timeout: 1000 } : {})}
+              >
+                <Grid
+                  lg={4}
+                  container
+                  height={"100%"}
+                  width={"100%"}
+                  flexDirection="column"
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  onClick={() => {
+                    handleServiceElementClick(index);
+                  }}
+                >
+                  <ServiceCard
+                    element={element}
+                    index={index}
+                    handleServiceElementClick={handleServiceElementClick}
+                  />
+                </Grid>
+              </Grow>
+            );
+          })}
+        </Grid>
+      )}
+
+      {!!selectedIndex && (
+        <Grid container width={"100%"} height="100%">
+          <Grid item lg={3} height="100%">
             <Grid
-              lg={4}
               container
-              height={"100%"}
               width={"100%"}
-              flexDirection="column"
-              justifyContent={"center"}
-              alignItems={"center"}
+              height="100%"
+              flexDirection={"column"}
+              justifyContent={"space-between"}
+            >
+              {ServicePage.map((element, index) => {
+                return (
+                  <Grow
+                    in={selectedIndex}
+                    style={{ transformOrigin: "0 0 0" }}
+                    {...(selectedIndex ? { timeout: 1000 } : {})}
+                  >
+                    <Grid
+                      item
+                      style={
+                        index + 1 === selectedIndex
+                          ? { background: "#01a0e1" }
+                          : { background: "grey" }
+                      }
+                      className="service_side_bar"
+                      onClick={() => {
+                        handleServiceElementClick(index);
+                      }}
+                    >
+                      <h4> {element.header1} </h4>
+                      <ArrowForwardIosIcon />
+                    </Grid>
+                  </Grow>
+                );
+              })}
+            </Grid>
+          </Grid>
+
+          <Grid item lg={9}>
+            <Grid
+              container
+              width={"100%"}
+              height="100%"
+              // justifyContent={"center"}
+              flexDirection={"column"}
+              spacing={12}
             >
               <Grid item>
-                <Image
-                  style={{
-                    width: 410,
-                    height: 350,
-                  }}
-                  src={element.src}
-                  alt={element.alt}
-                ></Image>
+                <Grid
+                  container
+                  width={"100%"}
+                  height="100%"
+                  lg={12}
+                  flexDirection={"row"}
+                  justifyContent={"space-around"}
+                >
+                  <Grid item lg={6}>
+                    <Image
+                      style={{
+                        width: "80%",
+                        height: 250,
+                      }}
+                      src={ServicePage[selectedIndex - 1].src}
+                      alt={ServicePage[selectedIndex - 1].alt}
+                    ></Image>
+                  </Grid>
+                  <Grid item lg={6}>
+                    <Image
+                      style={{
+                        width: "80%",
+                        height: 250,
+                      }}
+                      src={ServicePage[selectedIndex - 1].src}
+                      alt={ServicePage[selectedIndex - 1].alt}
+                    ></Image>
+                  </Grid>
+                </Grid>
               </Grid>
               <Grid item>
-                <h3 className="service_card_header">{element.header1} </h3>
-              </Grid>
-
-              <Grid item>
-                <div className="divider" />
-              </Grid>
-              <Grid item>
-                <h4 className="service_card_sub_header">{element.header2} </h4>
+                <Grid
+                  container
+                  width={"100%"}
+                  height="100%"
+                  flexDirection={"column"}
+                  justifyContent={"center"}
+                >
+                  <h3 style={{ textAlign: "center" }}>SERVICE OVERVIEW</h3>
+                  <h4 style={{ textAlign: "center" }}>
+                    Scaffolding is an essential component of any domestic
+                    building project. It is required for roofing, home
+                    extensions, loft conversions, and many other structural home
+                    improvements. We provide professional advice, planning, and
+                    design for the scaffolding required for any domestic home
+                    development.Renovate has proven results for setting
+                    exceptional standards in cost control, planning, scheduling
+                    and project safety.
+                  </h4>
+                </Grid>
               </Grid>
             </Grid>
-          );
-        })}
-      </Grid>
+          </Grid>
+        </Grid>
+      )}
 
       <Footer></Footer>
     </main>
