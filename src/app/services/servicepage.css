@@ -104,7 +104,7 @@ cursor:pointer
 
 .container .box:nth-child(1):before,
 .container .box:nth-child(1):after {
-  background: linear-gradient(315deg, #bbd3b1, #00d0ff);
+  background: linear-gradient(315deg, #01a0e173, #00d0ff75);
 }
 
 .container .box:nth-child(2):before,

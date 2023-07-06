@@ -15,7 +15,7 @@ export default function InfoBox() {
       display={"flex"}
       justifyContent={"space-between"}
       width={"100%"}
-      style={{ marginTop: "5%" }}
+      style={{ marginTop: "5%","display":"flex","alignItems":"center" }}
     >
       <Grid item className={styles.sample_image}></Grid>
 
@@ -26,21 +26,21 @@ export default function InfoBox() {
       <Grid
         item
         className={styles.title_1}
-        style={{ backgroundColor: "#01A0E1" }}
+        style={{ backgroundColor: "#03A1E2" }}
       >
         <Typography className="infobox-text" >100+ EMPLOYEES</Typography>
       </Grid>
 
       <Grid item className={styles.title_1}>
-        <Typography className="infobox-text" >35+ Projects</Typography>
+        <Typography className="infobox-text" >20+ Awards</Typography>
       </Grid>
 
       <Grid
         item
         className={styles.title_1}
-        style={{ backgroundColor: "#01A0E1" }}
+        style={{ backgroundColor: "#03A1E2" }}
       >
-        <Typography className="infobox-text" >35+ Projects</Typography>
+        <Typography className="infobox-text" >35+ Clients</Typography>
       </Grid>
     </Grid>
   );

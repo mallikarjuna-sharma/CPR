@@ -14,9 +14,9 @@ function footer({ setIsOpen }) {
   return (
     <Grid container flexDirection={"column"}>
       <div className="footerMain">
-        <div>
+        <div style={{position:"relative"}}>
           <button className="footer-btn" onClick={handleContactPopUp}>
-            Contact Us
+            CONTACT US NOW
           </button>
           <div className="firstSec"></div>
           <div className="secondSec">

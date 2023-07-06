@@ -95,9 +95,14 @@ body {
 
 .nav_bar_text {
   color: #a59d9d;
-  font-size: 24px;
+  font-size: 20px;
   /* font-family: Poppins; */
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+.nav_bar_text:hover {
+  color: #000;
+  background: none;
 }

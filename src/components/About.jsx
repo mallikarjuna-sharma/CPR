@@ -62,7 +62,7 @@ function About() {
             Scaffolding services, Heavy Engineering Components Fabrication,
             Steel Structures and Steel construction turnkey projects.
           </Typography>
-          <StyledButton style={{ color: "grey" }} name={"Read More"}></StyledButton>
+          <StyledButton name={"Read More"}></StyledButton>
         </Grid>
       </Grid>
       <Grid item lg={1}></Grid>
@@ -72,7 +72,7 @@ function About() {
           alt="hero-image"
           style={{
             maxWidth: "100%",
-            maxHeight: "40vh",
+            maxHeight: "70vh",
           }}
         ></Image>
       </Grid>

@@ -80,7 +80,7 @@ export default function ContactModal({ open = false, handleClose }) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={modal_style}>
+      <Box sx={modal_style} style={{"border":"0","borderRadius":"25px"}}>
         <Grid container spacing={4} justifyContent={"space-between"}>
           <Grid item>
             <Image
@@ -151,15 +151,17 @@ export default function ContactModal({ open = false, handleClose }) {
           </Grid>
         </Grid>
 
-        <Grid container spacing={2} width={"100%"}>
-          <Grid item lg={12}>
+        <Grid container spacing={2} width={"100%"} style={{"position":"relative","marginTop":"10px"}}>
+          <Grid item lg={12} style={{"display":"flex","justifyContent":"center"}}>
             <Button
               fullWidth
               variant="contained"
               startIcon={<SendIcon />}
               onClick={handleSubmit}
+              className="SubmitBtn"
+              style={{"borderRadius":"100px","background":"#01A0E1","boxShadow":"0px 0px 30px 0px rgba(3, 161, 226, 0.8)","width":"auto","flexShrink":"0","border":"0","color":"#FFFF","fontSize":"16px","fontWeight":"600","bottom":"-55px","padding":"10px 20px","position":"absolute"}}
             >
-              Submit
+              SEND MESSAGE
             </Button>
           </Grid>
         </Grid>

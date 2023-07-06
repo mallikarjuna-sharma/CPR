@@ -52,9 +52,9 @@ function ServiceWeDo({ styles, col, count }) {
                       <div className="content">
                         <h3> {getServicelabel(index + 1)} </h3>
                         <p>
-                          DIn publishing and graphic design, Lorem ipsum is a
+                          DIn publishing and graphic design, Lorem is a
                           placeholder text commonly to demonstrate the
-                          visual form of a document or relying on meaningful content.
+                          visual or relying on meaningful content.
                         </p>
                       </div>
                     </div>
