@@ -22,7 +22,6 @@ const modal_style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 500,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -36,6 +35,12 @@ export default function ContactModal({ open = false, handleClose }) {
     email: "",
     message: "",
   });
+
+  const [width, setWidth] = React.useState(0);
+
+	React.useEffect(() => {
+	    setWidth(window.innerWidth);
+	});
 
   const handleNameChange = (event) => {
     setFormData({
@@ -80,15 +85,15 @@ export default function ContactModal({ open = false, handleClose }) {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={modal_style} style={{"border":"0","borderRadius":"25px"}}>
+      <Box sx={modal_style} style={{"border":"0","borderRadius":"25px", "width": width<500? 360:500,}}>
         <Grid container spacing={4} justifyContent={"space-between"}>
           <Grid item>
             <Image
               src={logo}
               alt="hero-image"
               style={{
-                width: 85,
-                height: 76,
+                width: 55,
+                height: 55,
               }}
             ></Image>
           </Grid>
@@ -117,7 +122,7 @@ export default function ContactModal({ open = false, handleClose }) {
           </Grid>
         </Grid>
 
-        <Grid container spacing={4} justifyContent={"space-between"}>
+        <Grid container spacing={4} justifyContent={"space-between"} flexDirection={'column'}>
           <Grid item lg={12}>
             <BasicFormControl
               label="Name"
@@ -152,7 +157,7 @@ export default function ContactModal({ open = false, handleClose }) {
         </Grid>
 
         <Grid container spacing={2} width={"100%"} style={{"position":"relative","marginTop":"10px"}}>
-          <Grid item lg={12} style={{"display":"flex","justifyContent":"center"}}>
+          <Grid item lg={12} style={{"display":"flex","justifyContent":"center","width":"100%"}}>
             <Button
               fullWidth
               variant="contained"

@@ -6,7 +6,7 @@
   margin-top: 50px;
 }
 
-.footerMain > div {
+.footerMain>div {
   display: flex;
   flex-direction: row;
 }
@@ -33,14 +33,11 @@
   margin-top: 1%;
 }
 
-.footerMain .secondSec > div {
+.footerMain .secondSec>div {
   flex-direction: row;
   display: flex;
   margin-top: 40px;
   align-items: center;
-}
-
-.footerMain .secondSec .headerCont {
 }
 
 .footerMain .secondSec .subCont {
@@ -52,7 +49,7 @@
   margin-top: 1%;
 }
 
-.footerMain .thirdSec > div {
+.footerMain .thirdSec>div {
   flex-direction: row;
   display: flex;
   margin-top: 40px;
@@ -60,7 +57,7 @@
   margin-left: 50px;
 }
 
-.footerMain .thirdSec .phSec > div {
+.footerMain .thirdSec .phSec>div {
   flex-direction: column;
   display: flex;
 }
@@ -87,4 +84,54 @@
 
 .footer-btn:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .firstSec {
+    display: none;
+  }
+
+  .secondSec,
+  .thirdSec {
+    width: 50% !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .firstSec {
+    display: none;
+  }
+
+  .secondSec,
+  .thirdSec {
+    width: 100% !important;
+  }
+
+  .footerMain{
+    height: unset;
+  }
+
+  .footerMain>div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerMain .footer-btn {
+    font-size: 14px;
+    right: unset;
+    width: 160px;
+    height: 46px;
+  }
+
+  .footerMain .thirdSec>div {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .footerMain .secondSec .headerCont {
+    font-size: 1.5rem;
+  }
+  .footerMain .copyRigthTag .copyRigthTagCont {
+    font-size: 0.8rem;
+  }
 }
