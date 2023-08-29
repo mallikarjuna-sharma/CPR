@@ -105,4 +105,5 @@ body {
 .nav_bar_text:hover {
   color: #000;
   background: none;
+  border-bottom: solid 5px #01A0E1;
 }

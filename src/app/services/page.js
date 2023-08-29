@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "../page.module.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/footer";
+import ContactModal from "@/components/ContactModal";
 import Title from "@/components/title";
 
 import service1 from "../../assests/service1.jpg";
@@ -72,6 +73,11 @@ const isLoaded = false;
 export default function page() {
   const [selectedIndex, setselectedIndex] = useState(0);
   const [startAnimate, setstartAnimate] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     if (!isLoaded) {
@@ -89,7 +95,7 @@ export default function page() {
 
   return (
     <main className="servicePage">
-      <NavBar styles={styles}></NavBar>
+      <NavBar styles={styles} setIsOpen={setIsOpen}></NavBar>
       <Title></Title>
 
       {!selectedIndex && startAnimate && (
@@ -97,10 +103,11 @@ export default function page() {
           container
           lg={12}
           flexWrap="wrap"
-          width="100%"
+          width="90%"
+          margin={'auto'}
           height="100%"
           flexDirection="row"
-          justifyContent="space-around"
+          justifyContent="center"
         >
           {ServicePage.map((element, index) => {
             return (
@@ -237,7 +244,8 @@ export default function page() {
         </Grid>
       )}
 
-      <Footer></Footer>
+      <Footer setIsOpen={setIsOpen}></Footer>
+      <ContactModal open={isOpen} handleClose={handleClose}></ContactModal>
     </main>
   );
 }
