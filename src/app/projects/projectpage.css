@@ -17,3 +17,58 @@
   cursor: pointer;
   margin-bottom: 5vh;
 }
+
+.projectBox {
+  position: relative;
+  cursor: pointer;
+}
+
+.projectBox:hover .projectBoxContent {
+  display: flex;
+  background-color: #0000006b;
+}
+
+.projectBoxContent {
+  display: none;
+  position: absolute;
+  height: 300px;
+  color: white;
+  width: 100%;
+  flex-direction: column;
+  justify-content: end;
+  border-bottom: solid 15px #01A0E1;
+}
+
+.PPFirstSec {
+  padding-top: 50px !important;
+}
+
+@media (pointer:coarse) {
+  .projectBox .projectBoxContent {
+    display: flex;
+    background-color: #0000006b;
+    position: absolute;
+    height: 300px;
+    color: white;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-bottom: solid 15px #01A0E1;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .PPFirstSec {
+    padding-top: 70px !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .PPFirstSec {
+    padding-top: 100px !important;
+  }
+
+  .categoryBtn {
+    font-size: 14px !important;
+  }
+}

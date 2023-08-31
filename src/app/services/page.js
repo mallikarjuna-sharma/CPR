@@ -96,7 +96,7 @@ export default function page() {
   return (
     <main className="servicePage">
       <NavBar styles={styles} setIsOpen={setIsOpen}></NavBar>
-      <Title></Title>
+      <Title title={"Our Services"}></Title>
 
       {!selectedIndex && startAnimate && (
         <Grid

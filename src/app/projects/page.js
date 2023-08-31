@@ -19,7 +19,7 @@ export default function page() {
   return (
     <main>
       <NavBar styles={styles} setIsOpen={setIsOpen}></NavBar>
-      <Title></Title>
+      <Title title={"Our Projects"}></Title>
       <OurProductsPage />
       <Footer setIsOpen={setIsOpen}></Footer>
       <ContactModal open={isOpen} handleClose={handleClose}></ContactModal>

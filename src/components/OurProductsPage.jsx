@@ -1,4 +1,6 @@
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, Button, Typography, Tooltip } from "@mui/material";
+
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
@@ -11,105 +13,115 @@ import s6 from "../assests/s6.jpg";
 import s7 from "../assests/s7.jpg";
 import s8 from "../assests/s8.jpg";
 import s9 from "../assests/s9.jpg";
-import { useState } from "react";
 
 const projectTiles = [
-  "All Projects",
+  "All",
+  "Solar",
   "Architecture",
   "Building",
   "Management",
-  "Solar",
 ];
 
-const projectTilesImages = [
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s1 },
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s2 },
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s3 },
+const projectDetails = [
+  { ProjectName: "SNUS SDE-2", Category: "Solar", source: s1 },
+  { ProjectName: "NUS SDE-4", Category: "Solar", source: s2 },
+  { ProjectName: "NCID", Category: "Solar", source: s3 },
 
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s4 },
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s5 },
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s6 },
+  { ProjectName: "Southbeach Mixed Devpt", Category: "Building", source: s4 },
+  { ProjectName: "Tanjong Pagar Mixed Devpt", Category: "Building", source: s5 },
+  { ProjectName: "MediaCorp Project", Category: "Building", source: s6 },
 
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s7 },
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s8 },
-  { header1: "Southbeach Mixed Devpt", header2: "header2", source: s9 },
+  { ProjectName: "Cantilever & Tower Scaffolds", Category: "Architecture", source: s7 },
+  { ProjectName: "Nuform system", Category: "Architecture", source: s8 },
+  { ProjectName: "Southbeach Management", Category: "Management", source: s9 },
 ];
 
 export default function OurProductsPage() {
-  const [selectedProjectTile, setselectedProjectTile] = useState(0);
+  const [selectedProjectTile, setselectedProjectTile] = useState('All');
+  const [projectData, setselectedprojectData] = useState(projectDetails);
 
+  useEffect(() => {
+    let data = selectedProjectTile == 'All' ? projectDetails : projectDetails.filter(el => el.Category === selectedProjectTile);
+    setselectedprojectData(data)
+  }, [selectedProjectTile])
   return (
     <Grid container flexDirection={"column"} spacing={12}>
-      <Grid item lg={12}>
+      <Grid item lg={12} className={'PPFirstSec'}>
         <Grid
           container
           flexDirection={"row"}
-          justifyContent={"space-around"}
+          justifyContent={"center"}
           alignItems={"center"}
           width={"100%"}
           height="100%"
+          spacing={{ xs: 0, sm: 2, md: 2, lg: 2  }} 
         >
-          <Grid item lg={3}></Grid>
           {projectTiles.map((ele, index) => {
             return (
               <Grid item>
-                <div
-                  style={
-                    index === selectedProjectTile
-                      ? { background: "#01a0e1" }
-                      : { background: "grey" }
-                  }
-                  className="title_button"
-                  onClick={() => {
-                    setselectedProjectTile(index);
-                  }}
-                >
-                  {ele}
-                </div>
+                <Button variant="text" style={
+                  ele === selectedProjectTile
+                    ? { backgroundColor: 'rgba(25, 118, 210, 0.09)' }
+                    : {}
+                } size="large" onClick={() => {
+                  setselectedProjectTile(ele);
+                }}><Typography style={
+                  ele === selectedProjectTile
+                    ? { color: "#01A0E1" }
+                    : { color: "#a59d9d" }
+                } variant="h6" display="block" fontWeight={600} className='categoryBtn' >
+                    {ele}
+                  </Typography></Button>
               </Grid>
             );
           })}
-          <Grid item lg={3}></Grid>
         </Grid>
       </Grid>
 
-      <Grid item lg={12}>
+      <Grid item lg={12} display={'flex'} justifyContent={"center"} style={{ paddingTop: '20px' }}>
         <Grid
           container
           flexDirection={"row"}
-          justifyContent={"space-around"}
+          justifyContent={"center"}
           alignItems={"center"}
-          width={"100%"}
+          width={"80%"}
           height="100%"
           alignContent={"center"}
+          spacing={5}
+          columns={{ xs: 4, sm: 12, md: 12, lg: 12 }}
         >
-          {projectTilesImages.map((ele) => {
+          {projectData.map((ele, index) => {
             return (
-              <Grid item lg={4}>
-                <Box
-                  display="flex"
-                  justifyContent="center"
-                  alignItems="center"
-                  flexDirection={"column"}
-                >
-                  <Image
-                    src={ele.source}
-                    alt="project images"
-                    style={{
-                      width: "80%",
-                      height: 250,
-                    }}
-                  />
-                  <Grid item>
-                    <h2 style={{ textAlign: "center" }}> {ele.header1}</h2>
-                  </Grid>
-                  <Grid item>
-                    <button className="view-project-button">
-                      {" "}
-                      View Project
-                    </button>
-                  </Grid>
-                </Box>
+              <Grid item xs={4} sm={6} md={4} lg={4} key={index}>
+                <Tooltip title="Click for more details" fontWeight={600} followCursor>
+                  <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    flexDirection={"column"}
+                    className='projectBox'
+                  >
+                    <Image
+                      src={ele.source}
+                      alt="project images"
+                      style={{
+                        width: "100%",
+                        height: 300,
+                      }}
+                    />
+                    <div className='projectBoxContent'>
+                      <Typography gutterBottom variant="h5" component="div" marginLeft='10px' fontWeight={600}>
+                        {ele.ProjectName}
+                      </Typography>
+                      <Typography gutterBottom variant="button" component="div" marginLeft='10px'>
+                        {ele.Category}{'/Client: Mun Siong'}
+                      </Typography>
+                      <Typography gutterBottom variant="button" component="div" display={'none'} marginLeft='10px'>
+                        {'Click for more details'}
+                      </Typography>
+                    </div>
+                  </Box>
+                </Tooltip>
               </Grid>
             );
           })}

@@ -1,6 +1,6 @@
 import { Grid, Typography, Button } from "@mui/material";
 
-function Title() {
+function Title(props) {
   return (
     <Grid
       container
@@ -13,7 +13,7 @@ function Title() {
     >
       <Grid item sx={12}>
       <Typography variant="h4" color={"#000000"}>
-            Our Services
+            {props.title}
           </Typography>
       </Grid>
     </Grid>
