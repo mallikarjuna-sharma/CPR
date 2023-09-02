@@ -1,47 +1,39 @@
 import { Grid, Box, Button, Typography, Tooltip } from "@mui/material";
-
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
 import Image from "next/image";
+import Data from './projectData'
 
-import s1 from "../assests/s1.jpg";
-import s2 from "../assests/s2.jpg";
-import s3 from "../assests/s3.jpg";
-import s4 from "../assests/s4.jpg";
-import s5 from "../assests/s5.jpg";
-import s6 from "../assests/s6.jpg";
-import s7 from "../assests/s7.jpg";
-import s8 from "../assests/s8.jpg";
-import s9 from "../assests/s9.jpg";
+// const projectTiles = [
+//   "All",
+//   "Solar",
+//   "Architecture",
+//   "Building",
+//   "Management",
+// ];
 
-const projectTiles = [
-  "All",
-  "Solar",
-  "Architecture",
-  "Building",
-  "Management",
-];
+// const projectDetail1 = [
+//   { ProjectName: "SNUS SDE-2", Category: "Solar", source: s1 },
+//   { ProjectName: "NUS SDE-4", Category: "Solar", source: s2 },
+//   { ProjectName: "NCID", Category: "Solar", source: s3 },
 
-const projectDetails = [
-  { ProjectName: "SNUS SDE-2", Category: "Solar", source: s1 },
-  { ProjectName: "NUS SDE-4", Category: "Solar", source: s2 },
-  { ProjectName: "NCID", Category: "Solar", source: s3 },
+//   { ProjectName: "Southbeach Mixed Devpt", Category: "Building", source: s4 },
+//   { ProjectName: "Tanjong Pagar Mixed Devpt", Category: "Building", source: s5 },
+//   { ProjectName: "MediaCorp Project", Category: "Building", source: s6 },
 
-  { ProjectName: "Southbeach Mixed Devpt", Category: "Building", source: s4 },
-  { ProjectName: "Tanjong Pagar Mixed Devpt", Category: "Building", source: s5 },
-  { ProjectName: "MediaCorp Project", Category: "Building", source: s6 },
-
-  { ProjectName: "Cantilever & Tower Scaffolds", Category: "Architecture", source: s7 },
-  { ProjectName: "Nuform system", Category: "Architecture", source: s8 },
-  { ProjectName: "Southbeach Management", Category: "Management", source: s9 },
-];
+//   { ProjectName: "Cantilever"+ " & "+ "Tower Scaffolds", Category: "Architecture", source: s7 },
+//   { ProjectName: "Nuform system", Category: "Architecture", source: s8 },
+//   { ProjectName: "Southbeach Management", Category: "Management", source: s9 },
+// ];
 
 export default function OurProductsPage() {
   const [selectedProjectTile, setselectedProjectTile] = useState('All');
-  const [projectData, setselectedprojectData] = useState(projectDetails);
+  const [projectData, setselectedprojectData] = useState(Data?.projectDetail1);
+  const router = useRouter()
 
   useEffect(() => {
-    let data = selectedProjectTile == 'All' ? projectDetails : projectDetails.filter(el => el.Category === selectedProjectTile);
+    let data = selectedProjectTile == 'All' ? (Data?.projectDetail1) : Data?.projectDetail1.filter(el => el.Category === selectedProjectTile);
     setselectedprojectData(data)
   }, [selectedProjectTile])
   return (
@@ -56,7 +48,7 @@ export default function OurProductsPage() {
           height="100%"
           spacing={{ xs: 0, sm: 2, md: 2, lg: 2  }} 
         >
-          {projectTiles.map((ele, index) => {
+          {Data?.projectTiles.map((ele, index) => {
             return (
               <Grid item>
                 <Button variant="text" style={
@@ -89,6 +81,7 @@ export default function OurProductsPage() {
           alignContent={"center"}
           spacing={5}
           columns={{ xs: 4, sm: 12, md: 12, lg: 12 }}
+          className='PPSecondSec'
         >
           {projectData.map((ele, index) => {
             return (
@@ -100,6 +93,7 @@ export default function OurProductsPage() {
                     alignItems="center"
                     flexDirection={"column"}
                     className='projectBox'
+                   onClick={()=> router.push('/projectDetails?'+ele.ProjectName)}
                   >
                     <Image
                       src={ele.source}

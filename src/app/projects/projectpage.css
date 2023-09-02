@@ -57,6 +57,12 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .PPSecondSec {
+    width: 100% !important;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .PPFirstSec {
     padding-top: 70px !important;

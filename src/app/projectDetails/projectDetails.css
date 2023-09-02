@@ -1,0 +1,51 @@
+.projectDetailHeaders{
+  position: relative;
+  text-align: "left";
+}
+.projectDetailHeaders::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid #000;
+  width: 10%;
+}
+
+.projectDetailDescription{
+  text-align: center;
+  font-size: 16px;
+  margin: 20px 30px;
+}
+
+.projectDetailTable{
+  font-size: 16px;
+  margin: 20px 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .projectDetailMainContent{
+    padding: 20px 0 0 55px !important;
+    
+  }
+  .projectDetailFirstSec{
+    padding: 0 !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .projectDetailMainContent {
+    padding: 40px 0 0 55px !important;
+  }
+  .projectDetailFirstSec{
+    padding: 0 !important;
+  }
+  .projectDetailDescription{
+    text-align: left;
+  }
+  .projectDetailTable{
+    margin: 20px 10px !important;
+  }
+  .projectDetailTable table{
+    min-width: 300px !important;
+  }
+}
