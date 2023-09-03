@@ -27,6 +27,7 @@ export function HomeScreen({ styles }) {
                   style={{ fontWeight: 600 }}
                   variant="h4"
                   color={"black"}
+                  className={styles.home_screen_header}
                 >
                   CONSTRUCTION PROFESSIONAL
                 </Typography>
@@ -36,6 +37,7 @@ export function HomeScreen({ styles }) {
                   style={{ fontWeight: 600 }}
                   variant="h4"
                   color={"black"}
+                  className={styles.home_screen_header}
                 >
                   RESOURCES PTE LTD
                 </Typography>

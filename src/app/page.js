@@ -11,10 +11,15 @@ import InfoBox from "@/components/InfoBox";
 import OurClient from "@/components/OurClients";
 import Footer from "@/components/footer";
 import ContactModal from "@/components/ContactModal";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+	useEffect(() => {
+    setIsMobile(window.innerWidth<500? true: false);
+	});
 
   const handleClose = () => {
     setIsOpen(false);
@@ -26,9 +31,13 @@ export default function Home() {
       <HomeScreen styles={styles}></HomeScreen>
       <About></About>
       <ServiceWeDo styles={styles} col={3} count={4}></ServiceWeDo>
+      {!isMobile && 
+      <>
       <ProjectsWork styles={styles}> </ProjectsWork>
       <InfoBox styles={styles}></InfoBox>
       <OurClient></OurClient>
+      </>
+      }
       <Footer setIsOpen={setIsOpen}></Footer>
       <ContactModal open={isOpen} handleClose={handleClose}></ContactModal>
     </main>

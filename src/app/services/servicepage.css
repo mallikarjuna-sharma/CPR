@@ -247,3 +247,68 @@ cursor:pointer
   border: 1px solid rgba(255, 0, 88, 0.4);
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
+
+@media screen and (max-width: 1200px) {
+  .container .box {
+    width: 320px;
+  }
+  .container{
+    margin-bottom: 0;
+    padding: 20px 0;
+  }
+  .service_card_header {
+    font-size: 24px;
+    min-height: 50px;
+  }
+  
+  .service_card_sub_header {
+    font-size: 16px;
+  }
+  .divider {
+    height: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .CardGrid {
+    max-width: 25% !important;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .container .box {
+    width: 380px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container .box {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1024px) {
+  .container .box {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1000px) {
+  .CardGrid {
+    max-width: 50% !important;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .service_card_header {
+    font-size: 20px;
+  }
+  .container .box {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+ 
+}

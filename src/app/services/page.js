@@ -101,7 +101,7 @@ export default function page() {
       {!selectedIndex && startAnimate && (
         <Grid
           container
-          lg={12}
+          columns={{ xs: 12, sm: 12, md: 12, lg: 12 }}
           flexWrap="wrap"
           width="90%"
           margin={'auto'}
@@ -117,7 +117,7 @@ export default function page() {
                 {...(startAnimate ? { timeout: 1000 } : {})}
               >
                 <Grid
-                  lg={4}
+                  xs={12} sm={6} md={4} lg={4} 
                   container
                   height={"100%"}
                   width={"100%"}
@@ -127,6 +127,7 @@ export default function page() {
                   onClick={() => {
                     handleServiceElementClick(index);
                   }}
+                  className="CardGrid"
                 >
                   <ServiceCard
                     element={element}

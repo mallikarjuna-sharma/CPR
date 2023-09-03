@@ -85,7 +85,7 @@ export default function OurProductsPage() {
         >
           {projectData.map((ele, index) => {
             return (
-              <Grid item xs={4} sm={6} md={4} lg={4} key={index}>
+              <Grid item xs={4} sm={6} md={4} lg={3} key={index}>
                 <Tooltip title="Click for more details" fontWeight={600} followCursor>
                   <Box
                     display="flex"
