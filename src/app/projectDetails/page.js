@@ -4,7 +4,7 @@ import Title from "@/components/title";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/footer";
 import ContactModal from "@/components/ContactModal";
-import ProductpageDetails from "@/components/ProductpageDetails";
+import ProductpageDetails from "@/components/ProductPageDetails";
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import "./projectDetails.css"
