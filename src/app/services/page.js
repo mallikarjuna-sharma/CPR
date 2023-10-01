@@ -5,6 +5,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/footer";
 import ContactModal from "@/components/ContactModal";
 import Title from "@/components/title";
+import ServiceMobileCarousal from "@/components/ServiceMobileCarousal";
 
 import service1 from "../../assests/service1.jpg";
 import service2 from "../../assests/service2.jpg";
@@ -71,9 +72,15 @@ const ServicePage = [
 const isLoaded = false;
 
 export default function page() {
-  const [selectedIndex, setselectedIndex] = useState(0);
+  const [selectedIndex, setselectedIndex] = useState(1);
   const [startAnimate, setstartAnimate] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 500 ? true : false);
+  }, []);
 
   const handleClose = () => {
     setIsOpen(false);
@@ -93,6 +100,48 @@ export default function page() {
     setselectedIndex(index + 1);
   };
 
+  const Imageset = () => (
+    <>
+      <Grid item lg={6}>
+        <Image
+          style={{
+            width: "100%",
+            height: 250,
+          }}
+          src={ServicePage[selectedIndex - 1].src}
+          alt={ServicePage[selectedIndex - 1].alt}
+        ></Image>
+      </Grid>
+      {/* <Grid item lg={6}>
+        <Image
+          style={{
+            width: "100%",
+            height: 250,
+          }}
+          src={ServicePage[selectedIndex - 1].src}
+          alt={ServicePage[selectedIndex - 1].alt}
+        ></Image>
+      </Grid> */}
+    </>
+  );
+
+  const item = [Imageset, Imageset];
+
+  const MobileSection = () => {
+    return (
+      // <Grid
+      //   container
+      //   width={"100%"}
+      //   // height="100%"
+      //   // justifyContent={"center"}
+      //   flexDirection={"row"}
+      //   spacing={0}
+      // >
+      // </Grid>
+      <ServiceMobileCarousal items={item} />
+    );
+  };
+
   return (
     <main className="servicePage">
       <NavBar styles={styles} setIsOpen={setIsOpen}></NavBar>
@@ -104,7 +153,7 @@ export default function page() {
           columns={{ xs: 12, sm: 12, md: 12, lg: 12 }}
           flexWrap="wrap"
           width="90%"
-          margin={'auto'}
+          margin={"auto"}
           height="100%"
           flexDirection="row"
           justifyContent="center"
@@ -117,7 +166,10 @@ export default function page() {
                 {...(startAnimate ? { timeout: 1000 } : {})}
               >
                 <Grid
-                  xs={12} sm={6} md={4} lg={4} 
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  lg={4}
                   container
                   height={"100%"}
                   width={"100%"}
@@ -143,7 +195,7 @@ export default function page() {
 
       {!!selectedIndex && (
         <Grid container width={"100%"} height="100%">
-          <Grid item lg={3} height="100%">
+          <Grid item lg={3} sm={12} height="100%">
             <Grid
               container
               width={"100%"}
@@ -179,15 +231,10 @@ export default function page() {
             </Grid>
           </Grid>
 
-          <Grid item lg={9}>
-            <Grid
-              container
-              width={"100%"}
-              height="100%"
-              // justifyContent={"center"}
-              flexDirection={"column"}
-              spacing={12}
-            >
+          <Grid item lg={9} sm={12}>
+            {isMobile ? (
+              <MobileSection />
+            ) : (
               <Grid item>
                 <Grid
                   container
@@ -196,49 +243,32 @@ export default function page() {
                   lg={12}
                   flexDirection={"row"}
                   justifyContent={"space-around"}
+                  spacing={2}
                 >
-                  <Grid item lg={6}>
-                    <Image
-                      style={{
-                        width: "80%",
-                        height: 250,
-                      }}
-                      src={ServicePage[selectedIndex - 1].src}
-                      alt={ServicePage[selectedIndex - 1].alt}
-                    ></Image>
-                  </Grid>
-                  <Grid item lg={6}>
-                    <Image
-                      style={{
-                        width: "80%",
-                        height: 250,
-                      }}
-                      src={ServicePage[selectedIndex - 1].src}
-                      alt={ServicePage[selectedIndex - 1].alt}
-                    ></Image>
-                  </Grid>
+                  {item.map((ele) => ele())}
                 </Grid>
               </Grid>
-              <Grid item>
-                <Grid
-                  container
-                  width={"100%"}
-                  height="100%"
-                  flexDirection={"column"}
-                  justifyContent={"center"}
-                >
-                  <h3 style={{ textAlign: "center" }}>SERVICE OVERVIEW</h3>
-                  <h4 style={{ textAlign: "center" }}>
-                    Scaffolding is an essential component of any domestic
-                    building project. It is required for roofing, home
-                    extensions, loft conversions, and many other structural home
-                    improvements. We provide professional advice, planning, and
-                    design for the scaffolding required for any domestic home
-                    development.Renovate has proven results for setting
-                    exceptional standards in cost control, planning, scheduling
-                    and project safety.
-                  </h4>
-                </Grid>
+            )}
+            <Grid item >
+              <Grid
+                container
+                width={"100%"}
+                height="100%"
+                flexDirection={"column"}
+                justifyContent={"flex-end"}
+                padding={2}
+              >
+                <h3 style={{ textAlign: "center" }}>SERVICE OVERVIEW</h3>
+                <h4 style={{ textAlign: "center" }}>
+                  Scaffolding is an essential component of any domestic building
+                  project. It is required for roofing, home extensions, loft
+                  conversions, and many other structural home improvements. We
+                  provide professional advice, planning, and design for the
+                  scaffolding required for any domestic home
+                  development.Renovate has proven results for setting
+                  exceptional standards in cost control, planning, scheduling
+                  and project safety.
+                </h4>
               </Grid>
             </Grid>
           </Grid>
