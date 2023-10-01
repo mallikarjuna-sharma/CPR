@@ -72,7 +72,7 @@ const ServicePage = [
 const isLoaded = false;
 
 export default function page() {
-  const [selectedIndex, setselectedIndex] = useState(1);
+  const [selectedIndex, setselectedIndex] = useState(0);
   const [startAnimate, setstartAnimate] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -112,33 +112,54 @@ export default function page() {
           alt={ServicePage[selectedIndex - 1].alt}
         ></Image>
       </Grid>
-      {/* <Grid item lg={6}>
-        <Image
-          style={{
-            width: "100%",
-            height: 250,
-          }}
-          src={ServicePage[selectedIndex - 1].src}
-          alt={ServicePage[selectedIndex - 1].alt}
-        ></Image>
-      </Grid> */}
     </>
+  );
+
+  const ServiceHeaders = ({ element, index }) => (
+    <Grow
+      in={selectedIndex}
+      style={{ transformOrigin: "0 0 0" }}
+      {...(selectedIndex ? { timeout: 1000 } : {})}
+    >
+      <Grid
+        item
+        style={
+          index + 1 === selectedIndex
+            ? { background: "#01a0e1" }
+            : { background: "grey" }
+        }
+        className="service_side_bar"
+        onClick={() => {
+          handleServiceElementClick(index);
+        }}
+      >
+        <h4> {element.header1} </h4>
+        <ArrowForwardIosIcon />
+      </Grid>
+    </Grow>
   );
 
   const item = [Imageset, Imageset];
 
   const MobileSection = () => {
+    return <ServiceMobileCarousal items={item} />;
+  };
+
+  const MobileServiceHeader = () => {
     return (
-      // <Grid
-      //   container
-      //   width={"100%"}
-      //   // height="100%"
-      //   // justifyContent={"center"}
-      //   flexDirection={"row"}
-      //   spacing={0}
-      // >
-      // </Grid>
-      <ServiceMobileCarousal items={item} />
+      <Grid
+        container
+        maxWidth={"100%"}
+        flexDirection={"column"}
+        width={"100%"}
+        height={100}
+        overflow={"scroll"}
+        style={{ overflow: "scroll" }}
+      >
+        {ServicePage.map((element, index) =>
+          ServiceHeaders({ element, index })
+        )}
+      </Grid>
     );
   };
 
@@ -195,41 +216,23 @@ export default function page() {
 
       {!!selectedIndex && (
         <Grid container width={"100%"} height="100%">
-          <Grid item lg={3} sm={12} height="100%">
-            <Grid
-              container
-              width={"100%"}
-              height="100%"
-              flexDirection={"column"}
-              justifyContent={"space-between"}
-            >
-              {ServicePage.map((element, index) => {
-                return (
-                  <Grow
-                    in={selectedIndex}
-                    style={{ transformOrigin: "0 0 0" }}
-                    {...(selectedIndex ? { timeout: 1000 } : {})}
-                  >
-                    <Grid
-                      item
-                      style={
-                        index + 1 === selectedIndex
-                          ? { background: "#01a0e1" }
-                          : { background: "grey" }
-                      }
-                      className="service_side_bar"
-                      onClick={() => {
-                        handleServiceElementClick(index);
-                      }}
-                    >
-                      <h4> {element.header1} </h4>
-                      <ArrowForwardIosIcon />
-                    </Grid>
-                  </Grow>
-                );
-              })}
+          {isMobile ? (
+            <MobileServiceHeader />
+          ) : (
+            <Grid item lg={3} sm={12} height="100%">
+              <Grid
+                container
+                width={"100%"}
+                height="100%"
+                flexDirection={"column"}
+                justifyContent={"space-between"}
+              >
+                {ServicePage.map((element, index) =>
+                  ServiceHeaders({ element, index })
+                )}
+              </Grid>
             </Grid>
-          </Grid>
+          )}
 
           <Grid item lg={9} sm={12}>
             {isMobile ? (
