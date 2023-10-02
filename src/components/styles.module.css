@@ -73,6 +73,15 @@
   background-size: 45vh 20vw;
 }
 
+.sample_image_mobile {
+  background-image: url("../assests/sample_image1.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40vh;
+  /* width: 45vh; */
+  background-size: 100%;
+}
+
 .title_1 {
   width: 30vh;
   background-color: #D9D9D9;

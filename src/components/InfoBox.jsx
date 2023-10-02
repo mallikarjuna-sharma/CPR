@@ -19,7 +19,11 @@ export default function InfoBox({ isMobile }) {
       width={"100%"}
       style={{ marginTop: "5%", display: "flex", alignItems: "center" }}
     >
-      <Grid item className={styles.sample_image}></Grid>
+      {isMobile ? (
+        <Grid item className={styles.sample_image_mobile}></Grid>
+      ) : (
+        <Grid item className={styles.sample_image}></Grid>
+      )}
 
       <Grid item height={boxHt} className={styles.title_1}>
         <Typography variant="h3" className="infobox-text">

@@ -3,8 +3,7 @@
   height: 90vh;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100%;
-  min-width: 400px;
+  min-width: 104vw;
 }
 .service_card_img {
   max-width: 100%;
@@ -34,7 +33,7 @@
       top: 50%;
     }
     .home_screen_header{
-      font-size: 23px;
+      font-size: 20px;
     }
     .home_screen_bg {
       height: 60vh;

@@ -28,6 +28,7 @@ export function HomeScreen({ styles }) {
                   variant="h4"
                   color={"black"}
                   className={styles.home_screen_header}
+                  textAlign={"center"}
                 >
                   CONSTRUCTION PROFESSIONAL
                 </Typography>
@@ -38,8 +39,9 @@ export function HomeScreen({ styles }) {
                   variant="h4"
                   color={"black"}
                   className={styles.home_screen_header}
+                  textAlign={"center"}
                 >
-                  RESOURCES PTE LTD
+                  RESOURCES Pvt Ltd
                 </Typography>
               </Grid>
               <Grid item>
