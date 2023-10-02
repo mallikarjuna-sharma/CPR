@@ -1,7 +1,6 @@
 .project_card1 {
   box-shadow: 5px 10px 18px #888888;
   margin: 1%;
-  width: 30vw;
   height: 30vh;
   border-radius: 30px;
   background-image: url("../assests/service1.jpg");
@@ -38,7 +37,6 @@
   background-image: url("../assests/service2.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 30vw;
   height: 30vh;
   padding: 0px !important;
 }
@@ -50,7 +48,6 @@
   background-image: url("../assests/service3.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  width: 30vw;
   height: 30vh;
   padding: 0px !important;
 }
@@ -63,7 +60,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  width: 30vw;
   height: 30vh;
   padding: 0px !important;
 }
@@ -78,7 +74,6 @@
 }
 
 .title_1 {
-  height: 10vw;
   width: 30vh;
   background-color: #D9D9D9;
   display: flex;

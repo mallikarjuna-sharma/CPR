@@ -18,19 +18,19 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import logo from "../assests/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import HomeIcon from '@mui/icons-material/Home';
-import PhoneEnabledSharpIcon from '@mui/icons-material/PhoneEnabledSharp';
-import ConstructionIcon from '@mui/icons-material/Construction';
-import EngineeringRoundedIcon from '@mui/icons-material/EngineeringRounded';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import HomeIcon from "@mui/icons-material/Home";
+import PhoneEnabledSharpIcon from "@mui/icons-material/PhoneEnabledSharp";
+import ConstructionIcon from "@mui/icons-material/Construction";
+import EngineeringRoundedIcon from "@mui/icons-material/EngineeringRounded";
 const drawerWidth = 240;
 const navItems = ["HOME", "SERVICES", "PROJECTS", "CONTACT US"];
 
 function NavBar(props) {
   const { window, styles, setIsOpen } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -74,7 +74,6 @@ function NavBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      {/* <ElevationScroll {...props}> */}
       <AppBar
         position="sticky"
         color="transparent"
@@ -82,9 +81,8 @@ function NavBar(props) {
         style={{ boxShadow: "none" }}
       >
         <Toolbar>
-          
-          <Box sx={{ flexGrow: 1, padding:{xs: '5px 0'} }}>
-            <Image  className='headerLogo' src={logo}></Image>
+          <Box sx={{ flexGrow: 1, padding: { xs: "5px 0" } }}>
+            <Image className="headerLogo" src={logo}></Image>
           </Box>
 
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
@@ -109,41 +107,66 @@ function NavBar(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" }, position: 'absolute',
-            right: 0 }}
+            sx={{
+              mr: 2,
+              display: { sm: "none" },
+              position: "absolute",
+              right: 0,
+            }}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
-      {/* </ElevationScroll> */}
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          "aria-labelledby": "basic-button",
         }}
         sx={{
-          display: { xs: "block", sm: "none" }}}
+          display: { xs: "block", sm: "none" },
+        }}
       >
         {navItems.map((item) => (
-               <MenuItem>
-                <Link
-                  onClick={(event) => handleNavBarItemClick(event, item)}
-                  href={`/${item == "HOME" ? "" : item.toLowerCase()}`}
-                  style={{ textDecoration: "none", color: "unset",textTransform: 'capitalize', fontSize: '14px',
-                  fontWeight: 500, alignItems: 'center', display: 'flex' }}
-                >
-                  {item}
-                 {item =='HOME' && <HomeIcon style={{width: '15px', marginLeft: '5px'}}/>}
-                 {item =='SERVICES' && <ConstructionIcon style={{width: '15px', marginLeft: '5px'}}/>}
-                 {item =='PROJECTS' && <EngineeringRoundedIcon style={{width: '15px', marginLeft: '5px'}}/>}
-                 {item =='CONTACT US' && <PhoneEnabledSharpIcon style={{width: '15px', marginLeft: '5px'}}/>}
-                </Link>
-              </MenuItem>
-            ))}
+          <MenuItem>
+            <Link
+              onClick={(event) => handleNavBarItemClick(event, item)}
+              href={`/${item == "HOME" ? "" : item.toLowerCase()}`}
+              style={{
+                textDecoration: "none",
+                color: "unset",
+                textTransform: "capitalize",
+                fontSize: "14px",
+                fontWeight: 500,
+                alignItems: "center",
+                display: "flex",
+              }}
+            >
+              {item}
+              {item == "HOME" && (
+                <HomeIcon style={{ width: "15px", marginLeft: "5px" }} />
+              )}
+              {item == "SERVICES" && (
+                <ConstructionIcon
+                  style={{ width: "15px", marginLeft: "5px" }}
+                />
+              )}
+              {item == "PROJECTS" && (
+                <EngineeringRoundedIcon
+                  style={{ width: "15px", marginLeft: "5px" }}
+                />
+              )}
+              {item == "CONTACT US" && (
+                <PhoneEnabledSharpIcon
+                  style={{ width: "15px", marginLeft: "5px" }}
+                />
+              )}
+            </Link>
+          </MenuItem>
+        ))}
       </Menu>
       {/* <Box component="nav">
         <Drawer
@@ -168,30 +191,5 @@ function NavBar(props) {
     </Box>
   );
 }
-
-function ElevationScroll(props) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target: window ? window() : undefined,
-  });
-
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
-
-ElevationScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default NavBar;

@@ -31,13 +31,11 @@ export default function Home() {
       <HomeScreen styles={styles}></HomeScreen>
       <About></About>
       <ServiceWeDo styles={styles} col={3} count={4}></ServiceWeDo>
-      {!isMobile && (
-        <>
-          <ProjectsWork styles={styles}> </ProjectsWork>
-          <InfoBox styles={styles}></InfoBox>
-          <OurClient></OurClient>
-        </>
-      )}
+
+      <ProjectsWork isMobile={isMobile} styles={styles}></ProjectsWork>
+      <InfoBox isMobile={isMobile} styles={styles}></InfoBox>
+      <OurClient></OurClient>
+
       <Footer setIsOpen={setIsOpen}></Footer>
       <ContactModal open={isOpen} handleClose={handleClose}></ContactModal>
     </main>
