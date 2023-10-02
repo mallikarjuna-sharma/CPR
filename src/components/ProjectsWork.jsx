@@ -115,7 +115,7 @@ function ProjectsWork({ isMobile }) {
           </Grid>
         </Grid>
 
-        {/* <br /> */}
+        <br />
 
         <StyledButton name={"View Our Work"}></StyledButton>
       </Grid>

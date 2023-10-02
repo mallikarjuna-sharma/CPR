@@ -3,7 +3,7 @@ import { Grid, Typography } from "@mui/material";
 import clients from "../assests/clients.png";
 import Image from "next/image";
 
-export default function OurClient() {
+export default function OurClient({ isMobile }) {
   return (
     <>
       <Grid
@@ -24,8 +24,8 @@ export default function OurClient() {
           credibility.
         </Typography>
       </Grid>
-      <Grid Item width={"100%"}>
-        <Image style={{ maxWidth: "100%" }} src={clients}></Image>
+      <Grid item overflow={"scroll"}>
+        <Image src={clients}></Image>
       </Grid>
     </>
   );

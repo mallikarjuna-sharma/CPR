@@ -34,7 +34,7 @@ export default function Home() {
 
       <ProjectsWork isMobile={isMobile} styles={styles}></ProjectsWork>
       <InfoBox isMobile={isMobile} styles={styles}></InfoBox>
-      <OurClient></OurClient>
+      <OurClient isMobile={isMobile}></OurClient>
 
       <Footer setIsOpen={setIsOpen}></Footer>
       <ContactModal open={isOpen} handleClose={handleClose}></ContactModal>
