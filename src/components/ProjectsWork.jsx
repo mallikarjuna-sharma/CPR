@@ -37,10 +37,12 @@ function ProjectsWork({ isMobile }) {
             borderTopRightRadius: "30px",
             borderBottomLeftRadius: "30px",
           }}
+          className="projectTitleCard"
         >
           <h2>
             Tanjong Pagar Mixed Dept <br />
           </h2>
+          <div className="projectTitleCardContent">
           <h4 style={{ color: "#b3a6a678" }}>
             Address: Newstreet 213 <br />
           </h4>
@@ -52,6 +54,7 @@ function ProjectsWork({ isMobile }) {
               <span></span>
               <span></span>
             </div>
+          </div>
           </div>
         </div>
       </Grid>
@@ -103,7 +106,7 @@ function ProjectsWork({ isMobile }) {
 
         <Grid
           container
-          flexDirection={!isMobile ? "row" : "column"}
+          flexDirection={"row"}
           alignItems={"center"}
           justifyContent={"center"}
         >
@@ -117,7 +120,7 @@ function ProjectsWork({ isMobile }) {
 
         <br />
 
-        <StyledButton name={"View Our Work"}></StyledButton>
+        <StyledButton name={"View Our Work"} url={`/projects`}></StyledButton>
       </Grid>
     </>
   );

@@ -9,21 +9,9 @@
   padding: 0px !important;
 }
 
-.project_card1:hover {
-  box-shadow: none !important;
-  transition: 1s ease;
-  cursor: pointer;
-}
-.project_card2:hover {
-  box-shadow: none !important;
-  transition: 1s ease;
-  cursor: pointer;
-}
-.project_card3:hover {
-  box-shadow: none !important;
-  transition: 1s ease;
-  cursor: pointer;
-}
+.project_card1:hover,
+.project_card2:hover,
+.project_card3:hover,
 .project_card4:hover {
   box-shadow: none !important;
   transition: 1s ease;
@@ -77,8 +65,8 @@
   background-image: url("../assests/sample_image1.jpg");
   background-size: contain;
   background-repeat: no-repeat;
-  height: 40vh;
-  /* width: 45vh; */
+  height: 35vh;
+  width: 47vh;
   background-size: 100%;
 }
 
@@ -117,4 +105,26 @@
     calc(100% - var(--d)) 100%,
     0% 100%
   );
+}
+
+@media screen and (max-width: 500px) {
+  .project_card1,
+  .project_card2,
+  .project_card3,
+  .project_card4 {
+    margin: 5%;
+  }
+  .title_1 {
+    cursor: pointer;
+    margin-bottom: 20px;
+    transform: translate(0, 0);
+    clip-path: polygon(
+      0% var(--d),
+      var(--d) 0%,
+      100% 0%,
+      100% calc(100% - var(--d)),
+      calc(100% - var(--d)) 100%,
+      0% 100%
+    );
+  }
 }

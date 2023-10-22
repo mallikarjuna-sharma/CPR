@@ -134,7 +134,7 @@ export default function page() {
         }}
       >
         <h4> {element.header1} </h4>
-        <ArrowForwardIosIcon />
+        {!isMobile && <ArrowForwardIosIcon />}
       </Grid>
     </Grow>
   );

@@ -51,7 +51,7 @@ function ServiceWeDo({ styles, col, count }) {
                       </div>
                       <div className="content">
                         <h3> {getServicelabel(index + 1)} </h3>
-                        <p>
+                        <p style={{textAlign:'justify'}}>
                           DIn publishing and graphic design, Lorem is a
                           placeholder text commonly to demonstrate the
                           visual or relying on meaningful content.

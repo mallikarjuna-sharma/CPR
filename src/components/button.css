@@ -8,6 +8,7 @@
   font-weight: 700;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 .cta:before {
   content: "";
@@ -60,4 +61,25 @@
 
 .cta:hover {
   cursor: pointer;
+}
+@media screen and (max-width: 500px) {
+  .cta {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .cta:before {
+    height: 50px;
+    width: 100%;
+    background: #1095c16e;
+    /* box-shadow: 0px 0px 30px 0px rgba(3, 161, 226, 0.8); */
+    opacity: 1;
+  }
+  .cta svg {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .cta {
+    cursor: pointer;
+  }
 }

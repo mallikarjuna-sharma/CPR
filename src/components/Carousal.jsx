@@ -2,7 +2,13 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
 
-function Carousal(props) {
+function Carousal(styles) {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < 500 ? true : false);
+  }, []);
+
   var items = [
     {
       name: "Solar Services",
@@ -32,7 +38,7 @@ function Carousal(props) {
       }}
     >
       {items.map((item, i) => (
-        <Item key={i} item={item} />
+        <Item key={i} item={item} styles={styles} isMobile={isMobile} />
       ))}
     </Carousel>
   );
@@ -42,8 +48,8 @@ function Item(props) {
   return (
     <Paper
       style={{
-        width: "35vw",
-        height: "25vh",
+        height: props.isMobile? 'auto' : '25vh',
+        width: props.isMobile? 'auto' : "35vw",
         backgroundColor: "#ffffffbf",
         display: "flex",
         flexDirection: "column",
@@ -51,6 +57,7 @@ function Item(props) {
         alignItems: "center",
         borderRadius: "10px",
       }}
+      
     >
       <h1>{props.item.name}</h1>
       <h3>{props.item.description}</h3>

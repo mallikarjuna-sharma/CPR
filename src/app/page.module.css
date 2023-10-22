@@ -28,14 +28,28 @@
   right: 5%;
 }
 
+.paperCom{
+  width: "35vw";
+  height: "25vh";
+}
+
+
 @media screen and (max-width: 760px) {
     .home_screen_text {
-      top: 50%;
+      top: 45%;
+      right: 10%;
+    }
+    .ViewWorkBtn{
+      margin-top: 10px;
     }
     .home_screen_header{
       font-size: 20px;
     }
     .home_screen_bg {
-      height: 60vh;
+      height: 50vh;
+    }
+    .paperCom{
+      width: auto;
+      height: auto;
     }
 }

@@ -51,7 +51,10 @@ function About() {
             </Typography>
           </Grid>
 
-          <Typography variant={"h6"} color={"black"}>
+          <Typography variant={"h6"} color={"black"} style={{
+            textAlign: 'justify',
+            padding: '0 20px'
+          }}>
             Construction Professional Resources Pte. Ltd. (CPR has been a
             provider of quality scaffolding services since 2010. We first
             started off by offering contractors scaffold erectors, before moving
@@ -62,7 +65,7 @@ function About() {
             Scaffolding services, Heavy Engineering Components Fabrication,
             Steel Structures and Steel construction turnkey projects.
           </Typography>
-          <StyledButton name={"Read More"}></StyledButton>
+          <StyledButton name={"Read More"} url={`/services`}></StyledButton>
         </Grid>
       </Grid>
       <Grid item lg={1}></Grid>
@@ -71,7 +74,7 @@ function About() {
           src={image1}
           alt="hero-image"
           style={{
-            maxWidth: "100%",
+            maxWidth: "104%",
             maxHeight: "70vh",
           }}
         ></Image>

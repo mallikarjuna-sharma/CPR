@@ -44,8 +44,8 @@ export function HomeScreen({ styles }) {
                   RESOURCES Pvt Ltd
                 </Typography>
               </Grid>
-              <Grid item>
-                <StyledButton name={"View Our Work"}></StyledButton>
+              <Grid item className={styles.ViewWorkBtn}>
+                <StyledButton name={"View Our Work"} url={`/projects`}></StyledButton>
               </Grid>
             </Grid>
           </Grid>
