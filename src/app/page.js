@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main style={{overflowX: 'Hidden'}}>
       <NavBar styles={styles} setIsOpen={setIsOpen}></NavBar>
       <HomeScreen styles={styles}></HomeScreen>
       <About></About>
